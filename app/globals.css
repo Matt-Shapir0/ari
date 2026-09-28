@@ -1,5 +1,27 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+@theme {
+  --color-school-navy: #003882;
+  --color-school-dark: #002250;
+  --color-school-yellow: #FCD22B;
+  --color-school-yellowLight: #FFFBE6;
+}
+
+/* Fallback utility classes so colors ALWAYS work immediately */
+.bg-school-navy { background-color: #003882 !important; }
+.bg-school-dark { background-color: #002250 !important; }
+.text-school-navy { color: #003882 !important; }
+.bg-school-yellow { background-color: #FCD22B !important; }
+.text-school-yellow { color: #FCD22B !important; }
+.bg-school-yellowLight { background-color: #FFFBE6 !important; }
+.border-school-navy { border-color: #003882 !important; }
+.border-school-yellow { border-color: #FCD22B !important; }
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -23,4 +45,25 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
